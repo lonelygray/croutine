@@ -64,10 +64,10 @@ typedef unsigned char       BOOL;
 #define __CO_STATE_NEXT                 __LINE__ * 2 + 1
 
 #define __co_var(type, var) \
-    static type pdata var
+    static type var
 
 #define __co_let(type, var, value) \
-    static type pdata var = (value)
+    static type var = (value)
 
 typedef struct __co_asleep_context {
     u32 time_since;
