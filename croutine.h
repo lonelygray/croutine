@@ -38,7 +38,7 @@
 #define __CROUNTINE_H__
 //#include "stdio.h"
 
-#define get_tick_count             ulTimeGetTicks
+#define get_tick_count             GetTickCount
 #define TIME_ELAPSED(now, start)   (((now) >= (start)) ? ((now) - (start)) : (ULONG_MAX - (start) + now))
 
 /***************************************
@@ -48,10 +48,10 @@ typedef unsigned char       u8;
 typedef unsigned int        u16;
 typedef unsigned long       u32;
 typedef unsigned char       BOOL;
-//typedef unsigned char       bool;
+typedef unsigned char       bool;
 
-//#define false               0
-//#define true                1
+#define false               0
+#define true                1
 #define FALSE               0
 #define TRUE                1
 
@@ -64,10 +64,10 @@ typedef unsigned char       BOOL;
 #define __CO_STATE_NEXT                 __LINE__ * 2 + 1
 
 #define __co_var(type, var) \
-    static type pdata var
+    static type var
 
 #define __co_let(type, var, value) \
-    static type pdata var = (value)
+    static type var = (value)
 
 typedef struct __co_asleep_context {
     u32 time_since;
@@ -130,8 +130,8 @@ typedef bool __async_void;
         } while (0)
     
 #define __co_begin() \
-    static short pdata __co_state = 0; \
-    static __co_asleep_context_t pdata __co_asleep_context; \
+    static short __co_state = 0; \
+    static __co_asleep_context_t __co_asleep_context; \
     __co_asleep_context = __co_asleep_context; \
     switch (__co_state) { \
     case 0:
